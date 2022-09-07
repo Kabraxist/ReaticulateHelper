@@ -1,0 +1,319 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/Default Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/Articulation.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Popup.vs" type="Script" id=4]
+[ext_resource path="res://DefaultTheme.tres" type="Theme" id=5]
+[ext_resource path="res://Fonts/PTSansNarrow-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://FileDialog.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 6 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1024, 600 )
+theme = ExtResource( 5 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Base" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Base"]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="R" type="PanelContainer" parent="Base/HBoxContainer"]
+margin_right = 680.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Base/HBoxContainer/R"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 673.0
+margin_bottom = 593.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Base/HBoxContainer/R/VBoxContainer"]
+margin_right = 666.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer3"]
+margin_right = 595.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+size_flags_stretch_ratio = 9.0
+custom_fonts/font = SubResource( 1 )
+text = "Reaticulate Bank Creator [b07]"
+valign = 1
+
+[node name="InfoButton" type="Button" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer3"]
+margin_left = 599.0
+margin_right = 666.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "i"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Base/HBoxContainer/R/VBoxContainer"]
+margin_top = 48.0
+margin_right = 666.0
+margin_bottom = 92.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer2"]
+margin_right = 666.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer2/VBoxContainer"]
+margin_right = 666.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+margin_right = 81.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Group Name"
+valign = 1
+
+[node name="GroupName" type="LineEdit" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+margin_left = 85.0
+margin_top = 10.0
+margin_right = 327.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.0
+text = "User Banks/Generic"
+
+[node name="VSeparator" type="VSeparator" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+margin_left = 331.0
+margin_right = 335.0
+margin_bottom = 44.0
+
+[node name="Label2" type="Label" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+margin_left = 339.0
+margin_right = 419.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Bank Name"
+valign = 1
+
+[node name="BankName" type="LineEdit" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer2/VBoxContainer/HBoxContainer3"]
+margin_left = 423.0
+margin_top = 10.0
+margin_right = 666.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 3.0
+text = "Instrument Name"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Base/HBoxContainer/R/VBoxContainer"]
+margin_top = 96.0
+margin_right = 666.0
+margin_bottom = 537.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="ArtList" type="VBoxContainer" parent="Base/HBoxContainer/R/VBoxContainer/ScrollContainer"]
+margin_right = 666.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+
+[node name="Articulation" parent="Base/HBoxContainer/R/VBoxContainer/ScrollContainer/ArtList" instance=ExtResource( 3 )]
+margin_right = 666.0
+margin_bottom = 24.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Base/HBoxContainer/R/VBoxContainer"]
+margin_top = 541.0
+margin_right = 666.0
+margin_bottom = 586.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AddNewBut" type="Button" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer"]
+margin_right = 196.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+text = "Add New (Ctrl+A)"
+
+[node name="DuplicateBut" type="Button" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer"]
+margin_left = 200.0
+margin_right = 396.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+text = "Duplicate Last (Ctrl+D)"
+
+[node name="GenerateBut" type="Button" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer"]
+margin_left = 400.0
+margin_right = 596.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+text = "Generate (Ctrl+G)"
+
+[node name="SaveBut" type="Button" parent="Base/HBoxContainer/R/VBoxContainer/HBoxContainer"]
+margin_left = 600.0
+margin_right = 666.0
+margin_bottom = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+disabled = true
+text = "Save..."
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="L" type="PanelContainer" parent="Base/HBoxContainer"]
+margin_left = 684.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Base/HBoxContainer/L"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 333.0
+margin_bottom = 593.0
+
+[node name="Label" type="Label" parent="Base/HBoxContainer/L/VBoxContainer"]
+margin_right = 326.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+text = "RESULT"
+valign = 1
+
+[node name="TextExport" type="TextEdit" parent="Base/HBoxContainer/L/VBoxContainer"]
+margin_top = 52.0
+margin_right = 326.0
+margin_bottom = 533.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+text = "This is test text"
+readonly = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Base/HBoxContainer/L/VBoxContainer"]
+margin_top = 537.0
+margin_right = 326.0
+margin_bottom = 586.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CopyButton" type="Button" parent="Base/HBoxContainer/L/VBoxContainer/HBoxContainer"]
+margin_right = 214.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+text = "Copy to Clipboard"
+
+[node name="ExportButton" type="Button" parent="Base/HBoxContainer/L/VBoxContainer/HBoxContainer"]
+margin_left = 218.0
+margin_right = 326.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Export..."
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_left = 150.0
+margin_top = 200.0
+margin_right = 550.0
+margin_bottom = 400.0
+window_title = "Info"
+dialog_autowrap = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AcceptDialog"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 392.0
+margin_bottom = 162.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="AcceptDialog/VBoxContainer"]
+margin_right = 384.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+bbcode_text = "[b]Reaticulate Map Helper[/b]
+
+Reaticulate is an Articulation Manager for Reaper by Tack.
+Check [url=https://reaticulate.com/]https://reaticulate.com/[/url] for more information
+
+Check [url=https://spitfire-webassets.s3.amazonaws.com/pdfs/UACCv2spec.pdf]Spitfire UACC list[/url] for PR names
+
+This tool is built to help users create Articulation maps easier for their digital instruments."
+text = "Reaticulate Map Helper
+
+Reaticulate is an Articulation Manager for Reaper by Tack.
+Check https://reaticulate.com/ for more information
+
+Check Spitfire UACC list for PR names
+
+This tool is built to help users create Articulation maps easier for their digital instruments."
+
+[node name="FileDialog" type="FileDialog" parent="."]
+visible = true
+margin_left = 131.0
+margin_top = 163.0
+margin_right = 746.0
+margin_bottom = 501.0
+window_title = "Export Bank Text..."
+access = 2
+filters = PoolStringArray( "*.txt" )
+current_dir = "/Projeler/GODOT/ReaticulateHelper"
+current_path = "/Projeler/GODOT/ReaticulateHelper/"
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Base/HBoxContainer/R/VBoxContainer/HBoxContainer3/InfoButton" to="AcceptDialog" method="_on_InfoButton_button_down"]
+[connection signal="button_down" from="Base/HBoxContainer/R/VBoxContainer/HBoxContainer/AddNewBut" to="." method="_on_AddNewBut_button_down"]
+[connection signal="button_down" from="Base/HBoxContainer/R/VBoxContainer/HBoxContainer/DuplicateBut" to="." method="_on_DuplicateBut_button_down"]
+[connection signal="button_down" from="Base/HBoxContainer/R/VBoxContainer/HBoxContainer/GenerateBut" to="." method="_on_GenerateBut_button_down"]
+[connection signal="button_down" from="Base/HBoxContainer/L/VBoxContainer/HBoxContainer/CopyButton" to="." method="_on_CopyButton_button_down"]
+[connection signal="pressed" from="Base/HBoxContainer/L/VBoxContainer/HBoxContainer/ExportButton" to="FileDialog" method="_on_ExportButton_pressed"]
+[connection signal="file_selected" from="FileDialog" to="FileDialog" method="_on_FileDialog_file_selected"]

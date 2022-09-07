@@ -1,0 +1,82 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Prefabs/Articulation.vs" type="Script" id=1]
+[ext_resource path="res://Icons/outline_delete_forever_white_18dp.png" type="Texture" id=2]
+
+[node name="Articulation" type="HBoxContainer"]
+margin_right = 496.0
+margin_bottom = 20.0
+hint_tooltip = "Articulation Name"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgramNumber" type="LineEdit" parent="."]
+margin_right = 58.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+placeholder_text = "Pr."
+
+[node name="ArtcName" type="LineEdit" parent="."]
+margin_left = 62.0
+margin_right = 159.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+placeholder_text = "Art. Name"
+
+[node name="Color" type="OptionButton" parent="."]
+margin_left = 163.0
+margin_right = 260.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+text = "Default"
+items = [ "Default", null, false, 0, null, "Short", null, false, 1, null, "Legato", null, false, 2, null, "Long", null, false, 3, null, "Textured", null, false, 4, null, "FX", null, false, 5, null, "Short-Light", null, false, 6, null, "Short-Dark", null, false, 7, null, "Legato-Light", null, false, 8, null, "Legato-Dark", null, false, 9, null, "Long-Light", null, false, 10, null, "Long-Dark", null, false, 11, null, "#000000", null, false, 12, null ]
+selected = 0
+
+[node name="IconName" type="LineEdit" parent="."]
+margin_left = 264.0
+margin_right = 361.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+placeholder_text = "Icon Name"
+
+[node name="Action" type="LineEdit" parent="."]
+margin_left = 365.0
+margin_right = 462.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+placeholder_text = "Action"
+
+[node name="Delete" type="Button" parent="."]
+margin_left = 466.0
+margin_right = 496.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="Delete"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="Delete" to="." method="_on_Delete_button_down"]
